@@ -34,7 +34,7 @@ export default function MyForm() {
           <h2>ML Papers</h2>
           <ul>
             {searchResults.map((result) => (
-                <div className="card">
+                <div key={result[0].id} className="card">
                   <h3 className="card-title" >{result[0].title}</h3>
                   {/* <p className="card-summary">{result[0].summary}</p> */}
                   <Link href={`/paper/${result[0].index_}`}             style={{
