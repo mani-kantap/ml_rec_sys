@@ -24,7 +24,7 @@ export default function MyForm() {
   };
 
   return (
-    <div className="container">
+    <div className="flex container">
       <form onSubmit={handleSubmit}>
         <input type="text" value={searchQuery} onChange={handleNameChange} placeholder="Search for papers" />
         <button type="submit">Submit</button>
@@ -50,72 +50,6 @@ export default function MyForm() {
           </ul>
         </div>
       )}
-      <style jsx>{`
-        container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin: 30px 0;
-        }
-        form {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          max-width: 500px;
-          margin: 0 auto;
-        }
-        
-        form input {
-          width: 100%;
-          max-width: 400px;
-        }
-        input[type="text"] {
-          width: 100%;
-          padding: 10px;
-          font-size: 18px;
-          border-radius: 4px;
-          border: none;
-          box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-        }
-        button[type="submit"] {
-          padding: 10px;
-          font-size: 18px;
-          border-radius: 4px;
-          border: none;
-          background-color: #0070f3;
-          color: white;
-          cursor: pointer;
-        }
-        .my-link {
-          color: #666;
-          text-decoration: underline;
-        }
-        .cards-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .card {
-          width: 100%;
-          margin-bottom: 20px;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          background-color: #fff;
-        }
-
-        .card-title {
-          color: #666;
-          font-size: 24px;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-        .view-details {
-          display: block;
-          margin-top: 10px;
-        }
-      `}</style>
     </div>
   );
 }

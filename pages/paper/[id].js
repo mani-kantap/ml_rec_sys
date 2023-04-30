@@ -5,14 +5,17 @@ const ThingPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [data, setData] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
+    setIsFetching(true)
     if (id) {
       fetch(`https://recs_paper-1-w3981585.deta.app/recs/${id}`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.log(error));
     }
+    setIsFetching(false)
   }, [id]);
 
   const [expandedSummaries, setExpandedSummaries] = useState([]);
@@ -25,9 +28,16 @@ const ThingPage = () => {
     }
   };
 
+  if (!data || isFetching) {
+    return <div className="text-center mt-8">Loading......✨✨✨</div>;
+  }
+
   return (
+    <div className="flex flex-col min-h-screen">
+      <div className="container mx-auto flex-grow py-8">
     <div className="container">
-      <h1 className="title">Recommendations</h1>
+    <div className="text-center mt-2 text-xl">Enjoy recommendations🎉🎉🎉🎉</div>
+
       <div className="cards-container">
         {data && data.results.map(item => (
           <div key={item.id} className="card">
@@ -35,10 +45,9 @@ const ThingPage = () => {
             <p className={`card-summary${expandedSummaries.includes(item.id) ? ' expanded' : ''}`} onClick={() => handleSummaryClick(item.id)}>
               {item.summary}
             </p>
-            <a href={item.links.split(";")[0]} style={{
-              textDecoration: 'underline',
-              color: '#666',
-            }}>view paper </a>
+            <a href={item.links.split(";")[0]} className="underline text-my-green hover:text-gray-800">
+              View paper
+            </a>
           </div>
         ))}
       </div>
@@ -96,7 +105,10 @@ const ThingPage = () => {
         }
       `}</style>
     </div>
+    </div>
+    </div>
   );
 };
+
 
 export default ThingPage;
