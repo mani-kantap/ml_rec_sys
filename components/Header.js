@@ -1,4 +1,3 @@
-// Header.js
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -12,9 +11,12 @@ const Header = () => {
           </Link>
           <span className="ml-2 font-bold text-xl">ML Paper Recommendations</span>
         </div>
-        <div>
-          <Link href="/About" className="text-gray-600 hover:text-gray-800">
-              About
+        <div className="flex space-x-4">
+          <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">
+            Home
+          </Link>
+          <Link href="/About" className="text-gray-600 hover:text-gray-800 font-medium">
+            About
           </Link>
         </div>
       </div>

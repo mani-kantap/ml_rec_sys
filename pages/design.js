@@ -4,8 +4,6 @@ import Footer from '../components/Footer'
 import SearchResult from '../components/SearchResult'
 
 const search = async (query) => {
-  // Call your API to get the search results
-  // and return an array of results objects
   console.log("In Search")
   const response = await fetch("https://recs_paper-1-w3981585.deta.app/titlesearch/", {
     method: "POST",
