@@ -48,7 +48,7 @@ const Home = () => {
           />
           <button
             type="submit"
-            className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ml-2"
+            className="px-4 py-2 rounded-md bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-200 ml-2"
           >
             Search
           </button>
