@@ -44,6 +44,7 @@ export default function Explain({data}){
 export async function getServerSideProps(context) {
     const { ids } = context.query
     console.log(ids)
+    console.log(process.env.API_KEY)
     const id1 = ids[0];
     const id2 = ids[1];
 
