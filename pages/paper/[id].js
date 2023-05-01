@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const ThingPage = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const ThingPage = () => {
   useEffect(() => {
     setIsFetching(true)
     if (id) {
-      fetch(`https://recs_paper-1-w3981585.deta.app/recs/${id}`)
+      fetch(`https://recs_specter-1-w1125399.deta.app/specter/recs/${id}`)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.log(error));
@@ -45,9 +46,15 @@ const ThingPage = () => {
             <p className={`card-summary${expandedSummaries.includes(item.id) ? ' expanded' : ''}`} onClick={() => handleSummaryClick(item.id)}>
               {item.summary}
             </p>
-            <a href={item.links.split(";")[0]} className="underline text-my-green hover:text-gray-800">
+            <div className="flex gap-4">
+            <a href={item.links.split(";")[0]} className="inline-block px-4 py-2 text-black rounded hover:bg-gray-200">
               View paper
             </a>
+            <Link href={`/explain/${id}/${item.index_}`} className="inline-block px-4 py-2 text-black  rounded hover:bg-gray-200">
+              Explain
+            </Link>
+          </div>
+
           </div>
         ))}
       </div>
