@@ -65,7 +65,7 @@ const Home = () => {
               ML Paper recommendations
             </p>
             <div className="mt-8">
-                Search with your favourite ML Paper title to get recommendations..
+                Search with your favourite ML Paper title to get recommendations....
                 </div>
           </div>
         </div>
