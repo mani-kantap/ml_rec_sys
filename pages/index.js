@@ -33,10 +33,10 @@ const Home = () => {
 
   return (
     <>
-  <div className="flex flex-col min-h-screen items-center justify-center">
+  <div className="min-h-screen flex-grow overflow-y-auto items-center pt-20">
     <div className="container mx-auto py-4">
       <form onSubmit={handleSubmit}>
-        <div className="flex items-center relative text-gray-600 focus-within:text-gray-400">
+        <div className="flex fixed items-center relative text-gray-600 focus-within:text-gray-400">
           <input
             type="search"
             name="q"
@@ -48,7 +48,7 @@ const Home = () => {
           />
           <button
             type="submit"
-            className="px-4 py-2 rounded-md bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-200 ml-2"
+            className=" px-4 py-2 rounded-md bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-200 ml-2"
           >
             Search
           </button>
@@ -56,8 +56,8 @@ const Home = () => {
       </form>
       {isFetching && <div className="text-center">Searching...</div>}
       {results.length == 0 && (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <div className="text-center">
+        // <div className="flex flex-col items-center justify-center h-screen">
+          <div className="h-screen flex flex-col text-center justify-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
               Welcome to
             </h1>
@@ -68,7 +68,7 @@ const Home = () => {
                 Search with your favourite ML Paper title to get recommendations....
                 </div>
           </div>
-        </div>
+        // </div>
       )}
       {results.length > 0 && (
         <div className="grid grid-cols-1 gap-4 mt-8">
